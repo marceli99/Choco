@@ -1,8 +1,7 @@
-Simple blog system. Still work in progress :smirk:
-
-
-## Main page
-![main_page](http://wolf.bieda.it/1.png)
-
-## Login page
-![login_page](http://wolf.bieda.it/2.png)
+##Simple CRUD app.
+#####Setup project:
+...
+#####Admin credentials:
+login page: `/login` <br />
+username: `admin@admin.admin` <br />
+password: `zaq1@WSX` <br />
