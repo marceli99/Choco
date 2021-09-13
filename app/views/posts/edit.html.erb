@@ -1,0 +1,9 @@
+<%= form_for @post do |f| %>
+  <%= f.text_field :title, placeholder: t('Title') %><br />
+  <%= f.text_area :content, class: 'huge', placeholder: t('Content') %><br />
+  <label>
+    <h5>Grafika</h5>
+  <%= f.file_field :image %>
+  </label>
+  <%= f.submit %>
+<% end %>

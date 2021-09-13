@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  MARKDOWN = Redcarpet::Markdown.new(Redcarpet::Render::SmartyHTML)
+
   before_action :authenticate_user!, except: [:show]
   def index
     @posts = Post.order('created_at DESC')
@@ -7,9 +9,18 @@ class PostsController < ApplicationController
     @post = Post.new
   end
   def create
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::SmartyHTML)
     @post = Post.new(post_params)
-    @post.content = markdown.render(@post.content)
+    @post.content = MARKDOWN.render(@post.content)
+    @post.save
+    redirect_to root_path
+  end
+  def edit
+    @post = Post.find(params[:id])
+  end
+  def update
+    @post = Post.find(params[:id])
+    @post.content = MARKDOWN.render(params[:post][:content])
+    @post.title = params[:post][:title]
     @post.save
     redirect_to root_path
   end
