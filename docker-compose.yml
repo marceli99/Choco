@@ -1,7 +1,7 @@
 version: "3"
 services:
   db:
-    image: postgres:9.6-buster
+    image: postgres:14beta3-alpine
     container_name: db
     volumes:
       - ./tmp/db:/var/lib/postgresql/data

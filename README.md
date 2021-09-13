@@ -1,7 +1,16 @@
-## Simple CRUD app.
-##### Setup project:
-...
-##### Admin credentials:
+# Blog app
+## Requirements
+
+---
+- Docker
+## Setup
+
+---
+- Inside project just run ```docker-compose up -d```
+
+## Default user
+
+---
 login page: `/login` <br />
-username: `admin@admin.admin` <br />
-password: `zaq1@WSX` <br />
+username: `test@test.com` <br />
+password: `test` <br />

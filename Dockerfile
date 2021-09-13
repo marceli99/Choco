@@ -17,7 +17,10 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt update && apt install yarn
 
-RUN rails db:migrate || rails db:seed
+
+# prepare basic configuration
+RUN rails db:migrate RAILS_ENV=development
+RUN rails db:seed
 
 # Configure the main process to run when running the image
 CMD ["rails", "server", "-b", "0.0.0.0"]
