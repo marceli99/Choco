@@ -8,7 +8,7 @@
     <% @posts.each do |post| %>
      <tr>
         <td><%= post.title %></td>
-        <td><%= sanitize(post.content[0, 150], tags:[]) %>...</td>
+        <td><%= markdown(sanitize(post.content[0, 150], tags:[])) %>...</td>
         <td><%= image_tag post.image if post.image.attached? %></td>
         <td><%= link_to "Zobacz", post_path(post.id) %> <br /> <%= link_to "Usuń", post_path(post.id), method: :delete , class: 'right'%> <br /> <%= link_to "Edytuj", edit_post_path(post.id) , class: 'right'%></td> <!-- TODO: Add translation -->
      </tr>
