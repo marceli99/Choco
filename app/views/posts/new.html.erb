@@ -3,7 +3,24 @@
   <%= f.text_area :content, class: 'huge', placeholder: t('Content') %><br />
   <label>
     <h5>Grafika</h5>
-  <%= f.file_field :image %>
+  <%= f.file_field :image, onChange: 'javascript: readURL(this)'%>
+    <br />
+    <img id="img_prev" src="#"  alt=""/>
   </label>
   <%= f.submit %>
 <% end %>
+<!-- Assume jQuery is loaded -->
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_prev')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

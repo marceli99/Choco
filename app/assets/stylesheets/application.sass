@@ -119,6 +119,21 @@ input
     padding: 15px
     width: 100%
 
+input[type=file]
+  &::-ms-browse
+    border: none
+    color: #000
+    font-size: 22px
+    padding: 15px
+    width: 100%
+
+  &::-webkit-file-upload-button, &::file-selector-button
+    border: none
+    color: #000
+    font-size: 22px
+    padding: 15px
+    width: 100%
+
 textarea
   resize: none
   height: 45vh
@@ -176,7 +191,7 @@ table
 
 @font-face
   font-family: Nunito
-  src: url('app/assets/fonts/Nunito.ttf')
+  src: asset_path('../fonts/Nunito.ttf')
 
 @media (max-width: 768px)
   nav

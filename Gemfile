@@ -18,6 +18,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Updated bundler
 gem 'bundler', '~> 2.1.4'
+# jquery
+gem 'jquery-rails'
 # Redcarper for markdown
 gem 'redcarpet'
 # Use Redis adapter to run Action Cable in production
