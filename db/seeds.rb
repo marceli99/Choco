@@ -1,7 +1,7 @@
 user = User.new
 user.email = 'test@test.com'
-user.password = 'test'
-user.password_confirmation = 'test'
+user.password = 'test123'
+user.password_confirmation = 'test123'
 user.save!
 
 post = Post.new

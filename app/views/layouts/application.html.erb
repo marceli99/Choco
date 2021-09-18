@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Choco</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Choco</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-  <nav>
-    <h1>Choco</h1>
-    <ul>
-      <li><%= link_to t('home'), root_path %></li>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to t('add'), new_post_path %>
-        </li>
-        <li>
-          <%= link_to t('posts'), posts_path %>
-        </li>
-        <li>
-          <%= link_to(t('logout'), destroy_user_session_path, method: :delete) %>
-        </li>
-      <% end %>
-    </ul>
-    <div>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<nav>
+  <h1>Choco</h1>
+  <ul>
+    <li>
+      <%= link_to t('home'), root_path %>
+    </li>
+    <% unless user_signed_in? %>
+      <li>
+        <%= link_to t('login'), login_path %>
+      </li>
+    <% end %>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to t('add'), new_post_path %>
+      </li>
+      <li>
+        <%= link_to t('posts'), posts_path %>
+      </li>
+      <li>
+        <%= link_to(t('logout'), destroy_user_session_path, method: :delete) %>
+      </li>
+    <% end %>
+  </ul>
+  <div>
     <%= link_to t('poweredbychoco'), 'https://github.com/marceli99' %>
-    </div>
-  </nav>
-  <article>
-    <%= yield %>
-  </article>
-  </body>
+  </div>
+</nav>
+<article>
+  <%= yield %>
+</article>
+</body>
 </html>

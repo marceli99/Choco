@@ -13,4 +13,4 @@
 ---
 login page: `/login` <br />
 username: `test@test.com` <br />
-password: `test` <br />
+password: `test123` <br />
