@@ -1,16 +1,19 @@
- <table>
+<table>
+  <tr>
+    <th><%= t('title') %></th> <!-- TODO: Add translation -->
+    <th><%= t('content') %></th>
+    <th><%= t('image') %></th>
+    <th><%= t('actions') %></th>
+  </tr>
+  <% @posts.each do |post| %>
     <tr>
-      <th><%= t('title') %></th> <!-- TODO: Add translation -->
-      <th><%= t('content') %></th>
-      <th><%= t('image') %></th>
-      <th><%= t('actions') %></th>
+      <td><%= post.title %></td>
+      <td><%= markdown(sanitize(post.content[0, 150], tags: [])) %>...</td>
+      <td><%= image_tag post.image if post.image.attached? %></td>
+      <td><%= link_to "Zobacz", post_path(post.id) %>
+        <br/> <%= link_to "Usuń", post_path(post.id), method: :delete, class: 'right' %>
+        <br/> <%= link_to "Edytuj", edit_post_path(post.id), class: 'right' %></td> <!-- TODO: Add translation -->
     </tr>
-    <% @posts.each do |post| %>
-     <tr>
-        <td><%= post.title %></td>
-        <td><%= markdown(sanitize(post.content[0, 150], tags:[])) %>...</td>
-        <td><%= image_tag post.image if post.image.attached? %></td>
-        <td><%= link_to "Zobacz", post_path(post.id) %> <br /> <%= link_to "Usuń", post_path(post.id), method: :delete , class: 'right'%> <br /> <%= link_to "Edytuj", edit_post_path(post.id) , class: 'right'%></td> <!-- TODO: Add translation -->
-     </tr>
-    <% end %>
-  </table>
+  <% end %>
+</table>
+<%= paginate @posts %>

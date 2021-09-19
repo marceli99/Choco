@@ -1,20 +1,16 @@
-<h2>Some text</h2>
+## Emphasis
 
-<pre><code>
-Hello world!
-</code></pre>
+**This is bold text**
 
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X</td>
-<td>Z</td>
-</tr>
-</tbody>
-</table>
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+~~Strikethrough~~
+
+
+    (0..25).each { |i|
+        puts 'Hello world!'
+    }
