@@ -83,6 +83,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
     erubi (1.10.0)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
     ffi (1.15.4)
     ffi (1.15.4-java)
     ffi (1.15.4-x64-mingw32)
@@ -186,6 +188,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rexml (3.2.5)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -273,6 +276,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  factory_bot
   jbuilder (~> 2.7)
   jquery-rails
   kaminari
@@ -281,6 +285,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   redcarpet
+  rexml
   rspec-rails (~> 4.0.0.beta)
   sass-rails (>= 6)
   selenium-webdriver

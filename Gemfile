@@ -52,7 +52,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
@@ -65,4 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :x64_mingw, :jruby]
 group :development, :test do
   # Note that rspec-rails 4.0 is still a beta release
   gem 'rspec-rails', '~> 4.0.0.beta'
+  gem 'rexml'
+  gem 'factory_bot'
+  gem 'capybara', '>= 2.15'
 end
