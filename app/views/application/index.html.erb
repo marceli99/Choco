@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
   <h2><%= link_to post.title, post_path(post.id) %></h2>
   <small><%= post.created_at.strftime('%F') %></small>
-  <%= image_tag post.image if post.image.attached? %>
+  <%= image_tag url_for(post.image) if post.image.attached? %>
   <p><%= markdown(sanitize(post.content)) %></p>
   <hr>
 <% end %>

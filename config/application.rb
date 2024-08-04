@@ -6,15 +6,20 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Choco
+module YourAppName
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.i18n.default_locale = :en
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.before_configuration do
+      require 'psych'
+
+      # Redefine Psych.safe_load to enable aliases by default
+      class << Psych
+        alias_method :original_safe_load, :safe_load
+
+        def safe_load(yaml, *args, **kwargs)
+          kwargs[:aliases] = true
+          original_safe_load(yaml, *args, **kwargs)
+        end
+      end
+    end
   end
 end
